@@ -25,7 +25,7 @@ const {gql} = require('apollo-server-express');
         type Query {
             users: [User]
             user(username: String!): User
-            thoughts(username: String): [THought]
+            thoughts(username: String): [Thought]
             thought(_id: ID!): Thought
         }
         type User {
