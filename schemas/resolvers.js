@@ -24,6 +24,15 @@ const resolvers = {
             .populate('friends')
             .populate('thoughts');
         },
+        Mutation: {
+            addUser: async (parent, args) => {
+                const user = await User.create(args);   //Here, the Mongoose User model creates a new user in the database with whatever is passed in as the args.
+                return user;
+            },
+            login: async () => {
+
+            }
+        }
     }
 };
 

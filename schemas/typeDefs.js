@@ -36,7 +36,11 @@ const {gql} = require('apollo-server-express');
             thoughts: [Thought]
             friends: [User]
         }
-    `;
+        type Mutation {
+            login(email: String!, password: String!,): User   
+            addUser(username: String!, email: String!, password: String!): User
+        }
+    `;   //the ! character in a GraphQL query indicates a required argument. Thus, a user can't be created without a username, email, and password.
 
 
 //export the typeDefs
