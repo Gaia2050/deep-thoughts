@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import {useMutation} from '@apollo/client';
 import {ADD_USER} from '../utils/mutations';
-import { __Directive } from 'graphql';
+import Auth from './utils/auth';
 
 
 const Signup = () => {
@@ -28,6 +28,7 @@ const Signup = () => {
       const {data} = await addUser({
         variables: {...formState}
       });
+      Auth.login(data.addUser.token);
       console.log(data);
     } catch (e) {
       console.error(e);
